@@ -35,8 +35,8 @@
         <div class="flex justify-between my-5">
             <x-link
                 :href="route('register')"
-                Crear Cuenta
             >
+                Crear Cuenta
             </x-link>
         
             <x-link
