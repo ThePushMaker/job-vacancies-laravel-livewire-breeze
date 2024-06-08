@@ -30,6 +30,10 @@
                 <option value="{{ $salario->id }}">{{ $salario->salario }}</option>
             @endforeach
         </select>
+        
+        @error('salario')
+            <livewire:mostrar-alerta :message="$message" />
+        @enderror
     </div>
     
     <div>
@@ -44,6 +48,10 @@
                 <option value="{{ $categoria->id }}">{{ $categoria->categoria }}</option>
             @endforeach
         </select>
+        
+        @error('categoria')
+            <livewire:mostrar-alerta :message="$message" />
+        @enderror
     </div>
     
     <div>
@@ -58,6 +66,9 @@
         />
     </div>
     
+    @error('empresa')
+        <livewire:mostrar-alerta :message="$message" />
+    @enderror
     <div>
         <x-input-label for="ultimo_dia" :value="__('Último día para postularse')" />
         <x-text-input 
@@ -67,6 +78,10 @@
             wire:model="ultimo_dia" 
             :value="old('ultimo_dia')"
         />
+        
+        @error('ultimo_dia')
+            <livewire:mostrar-alerta :message="$message" />
+        @enderror
     </div>
     
     <div>
@@ -76,6 +91,10 @@
             placeholder="Ej. Descripción general del Puesto, experiencia"
             class="rounded-md border-gray-300 focus:border-indigo-300 focus:ring-indigo-200 focus:ring-opacity-50 w-full h-72"
         ></textarea>
+        
+        @error('descripcion')
+            <livewire:mostrar-alerta :message="$message" />
+        @enderror
     </div>
     
     <div>
@@ -86,6 +105,10 @@
             type="file" 
             wire:model="imagen"
         />
+        
+        @error('imagen')
+            <livewire:mostrar-alerta :message="$message" />
+        @enderror
     </div>
     
     <x-primary-button class="w-full justify-center">
