@@ -1,4 +1,7 @@
-<form class="md:w-1/2 space-y-5">
+<form 
+    class="md:w-1/2 space-y-5"
+    wire:submit.prevent='crearVacante'
+>
     <div>
         <x-input-label for="titulo" :value="__('Titulo Vacante')" />
         <x-text-input 
@@ -9,6 +12,10 @@
             :value="old('titulo')"
             placeholder="Ej. Programador Laravel Full Stack"
         />
+        
+        @error('titulo')
+            {{ $message }}
+        @enderror
     </div>
     
     <div>

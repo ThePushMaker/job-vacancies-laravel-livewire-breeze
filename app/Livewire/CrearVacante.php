@@ -16,6 +16,11 @@ class CrearVacante extends Component
     public $descripcion;
     public $imagen;
     
+    public function crearVacante()
+    {
+        $datos = $this->validate();
+    }
+    
     protected $rules = [
         'titulo' => 'required|string',
         'salario' => 'required',
