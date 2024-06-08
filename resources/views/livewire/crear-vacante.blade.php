@@ -5,7 +5,7 @@
             id="titulo" 
             class="block mt-1 w-full" 
             type="text" 
-            name="titulo" 
+            wire:model="titulo" 
             :value="old('titulo')"
             placeholder="Ej. Programador Laravel Full Stack"
         />
@@ -15,7 +15,7 @@
         <x-input-label for="salario" :value="__('Salario Mensual')" />
         <select
             id="salario"
-            name="salario"
+            wire:model="salario"
             class="border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm w-full"
         >
             <option>-- Seleccione --</option>
@@ -29,7 +29,7 @@
         <x-input-label for="categoria" :value="__('Categoría')" />
         <select
             id="categoria"
-            name="categoria"
+            wire:model="categoria"
             class="border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm w-full"
         >
             <option>-- Seleccione --</option>
@@ -45,7 +45,7 @@
             id="empresa" 
             class="block mt-1 w-full" 
             type="text" 
-            name="empresa" 
+            wire:model="empresa" 
             :value="old('empresa')"
             placeholder="Ej. Netflix, Uber, Shopify"
         />
@@ -57,7 +57,7 @@
             id="ultimo_dia" 
             class="block mt-1 w-full" 
             type="date" 
-            name="ultimo_dia" 
+            wire:model="ultimo_dia" 
             :value="old('ultimo_dia')"
         />
     </div>
@@ -65,7 +65,7 @@
     <div>
         <x-input-label for="descripcion" :value="__('Descripción del Puesto')" />
         <textarea
-            name="descripcion"
+            wire:model="descripcion"
             placeholder="Ej. Descripción general del Puesto, experiencia"
             class="rounded-md border-gray-300 focus:border-indigo-300 focus:ring-indigo-200 focus:ring-opacity-50 w-full h-72"
         ></textarea>
@@ -77,6 +77,7 @@
             id="imagen" 
             class="block mt-1 w-full" 
             type="file" 
+            wire:model="imagen"
         />
     </div>
     
