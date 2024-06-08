@@ -14,7 +14,7 @@
         />
         
         @error('titulo')
-            {{ $message }}
+            <livewire:mostrar-alerta :message="$message" />
         @enderror
     </div>
     
