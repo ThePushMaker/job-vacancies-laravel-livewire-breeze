@@ -13,7 +13,7 @@ class CrearVacante extends Component
     public $salario;
     public $categoria;
     public $empresa;
-    public $ultimo_dia;
+    public $ultimo_dia ;
     public $descripcion;
     public $imagen;
     
@@ -22,6 +22,18 @@ class CrearVacante extends Component
     public function crearVacante()
     {
         $datos = $this->validate();
+        
+        // almacenar la imagen
+        $imagen = $this->imagen->store('public/vacantes');
+        $nombre_imagen = str_replace('public/vacantes/', '', $imagen);
+        dd($nombre_imagen);
+        
+        
+        // crear la vacante
+        
+        // crear un mensaje
+        
+        // redireccionar al usuario
     }
     
     protected $rules = [
