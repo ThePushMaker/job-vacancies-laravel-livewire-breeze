@@ -13,6 +13,8 @@ return new class extends Migration
     {
         Schema::create('vacantes', function (Blueprint $table) {
             $table->id();
+            $table->string('titulo');
+            $table->foreignId('salario_id')->constrained()->onUpdate('set null')->onDelete('set null');
             $table->timestamps();
         });
     }
