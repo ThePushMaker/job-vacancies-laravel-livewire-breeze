@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Vacante;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
 
 class VacanteController extends Controller
 {
@@ -44,6 +45,17 @@ class VacanteController extends Controller
      */
     public function edit(Vacante $vacante)
     {
+        // $this->autorize('update', $vacante);
+        if(Gate::allows('update', $vacante))
+        {
+            return view('vacantes.edit', [
+               'vacante' => $vacante
+            ]);
+        } else 
+        {
+            return redirect()->route('vacantes.index');
+        }
+        
         return view('vacantes.edit', [
             'vacante' => $vacante
         ]);
