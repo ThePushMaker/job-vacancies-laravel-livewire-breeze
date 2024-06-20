@@ -11,6 +11,7 @@ use Livewire\Component;
 
 class EditarVacante extends Component
 {
+    public $vacante_id;
     public $titulo;
     public $salario;
     public $categoria;
@@ -30,6 +31,7 @@ class EditarVacante extends Component
     
     public function mount(Vacante $vacante)
     {
+        $this->vacante_id = $vacante->id;
         $this->titulo = $vacante->titulo;
         $this->salario = $vacante->salario_id;
         $this->categoria = $vacante->categoria_id;
@@ -42,6 +44,26 @@ class EditarVacante extends Component
     public function editarVacante()
     {
         $datos = $this->validate();
+        
+        // revisar si hay una nueva imagen
+        
+        // encontrar la vacante a editar
+        $vacante = Vacante::find($this->vacante_id);
+        
+        // asignarlos valores
+        $vacante->titulo = $datos['titulo'];
+        $vacante->salario_id = $datos['salario'];
+        $vacante->categoria_id = $datos['categoria'];
+        $vacante->empresa = $datos['empresa'];
+        $vacante->ultimo_dia = $datos['ultimo_dia'];
+        $vacante->descripcion = $datos['descripcion'];
+        
+        // guardar la vacante
+        $vacante->save();
+        
+        // redireccionar
+        session()->flash('mensaje', 'La vacante se actualizó correctamente');
+        return redirect()->route('vacantes.index');
     }
     
     public function render()
