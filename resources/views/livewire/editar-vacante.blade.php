@@ -103,18 +103,9 @@
             id="imagen" 
             class="block mt-1 w-full" 
             type="file" 
-            wire:model="imagen"
+            wire:model="imagen_nueva"
             accept="image/*"
         />
-        
-        {{-- <div class="my-5 w-96">
-            @if($imagen)
-                Imagen:
-                <img 
-                    src="{{ $imagen->temporaryUrl() }}"
-                />
-            @endif
-        </div> --}}
         
         <div class="my-5 w-96">
             <x-input-label :value="__('Imagen Actual')" />
@@ -124,7 +115,16 @@
             />
         </div>
         
-        @error('imagen')
+        <div class="my-5 w-96">
+            @if($imagen_nueva)
+                Imagen Nueva:
+                <img 
+                    src="{{ $imagen_nueva->temporaryUrl() }}"
+                />
+            @endif
+        </div>
+        
+        @error('imagen_nueva')
             <livewire:mostrar-alerta :message="$message" />
         @enderror
     </div>
