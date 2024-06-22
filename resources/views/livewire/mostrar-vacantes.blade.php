@@ -23,7 +23,7 @@
                     >Editar</a>
                     
                     <button
-                        wire:click="$dispatch('prueba', {id: {{ $vacante->id}}})"
+                        wire:click="$dispatch('mostrarAlerta', {{ $vacante->id}})"
                         class="bg-red-500 py-2 px-4 rounded-lg text-white text-xs font-bold uppercase text-center"
                     >Eliminar</button>
                 </div>
@@ -43,31 +43,30 @@
         
         <script>
             //Se accede de esta forma al id en el script 
-            Livewire.on('prueba',variableId=>{
-                alert('prueba ' + variableId.id)
+            Livewire.on('mostrarAlerta', vacanteId => {
+                Swal.fire({
+                    title: '¿Eliminar Vacante?',
+                    text: "Una vacante eliminada no se puede recuperar.",
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Sí, ¡Eliminar!',
+                    cancelButtonText: 'Cancelar'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        // eliminar la vacante
+                        @this.call('eliminarVacante', vacanteId);
+                        
+                        Swal.fire(
+                        '¡Eliminado!',
+                        'Tu vacante ha sido eliminada.',
+                        'success'
+                        )
+                    }
+                })
             })
         </script>
-        
-        {{-- <script>
-            Swal.fire({
-                title: '¿Eliminar Vacante?',
-                text: "Una vacante eliminada no se puede recuperar",
-                icon: 'warning',
-                showCancelButton: true,
-                confirmButtonColor: '#3085d6',
-                cancelButtonColor: '#d33',
-                confirmButtonText: 'Sí, ¡Eliminar!',
-                cancelButtonText: 'Cancelar'
-            }).then((result) => {
-                if (result.isConfirmed) {
-                    Swal.fire(
-                    'Eliminado!',
-                    'Tu vacante ha sido eliminada.',
-                    'Eliminado correctamente'
-                    )
-                }
-            })
-        </script> --}}
         
     @endpush
     
