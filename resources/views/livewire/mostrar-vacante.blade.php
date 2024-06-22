@@ -36,4 +36,19 @@
             <p>{{ $vacante->descripcion }}</p>    
         </div>
     </div>
+    
+    @guest
+        <div class="mt-5 bg-gray-50 border border-dashed p-5 text-center">
+            <p>
+                ¿Deseas aplicar a esta vacante? 
+                <a 
+                    href="{{ route('register') }}"
+                    class="font-bold text-indigo-600 hover:text-indigo-900"
+                >
+                    Obten una cuenta y aplica a esta y otras vacantes
+                </a>
+            </p>
+        </div>
+    @endguest
+    
 </div>
