@@ -24,7 +24,10 @@ class VacanteController extends Controller
      */
     public function create()
     {
-        return view('vacantes.create');
+        if(Gate::allows('create', Vacante::class))
+            return view('vacantes.create');
+        else
+            return redirect()->route('dashboard');
     }
 
     /**
@@ -44,14 +47,11 @@ class VacanteController extends Controller
     {
         // $this->autorize('update', $vacante);
         if(Gate::allows('update', $vacante))
-        {
             return view('vacantes.edit', [
                'vacante' => $vacante
             ]);
-        } else 
-        {
+        else 
             return redirect()->route('vacantes.index');
-        }
         
         return view('vacantes.edit', [
             'vacante' => $vacante
