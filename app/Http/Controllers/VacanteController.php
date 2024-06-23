@@ -13,7 +13,10 @@ class VacanteController extends Controller
      */
     public function index()
     {
-        return view('vacantes.index');
+        if (Gate::allows('viewAny', Vacante::class))
+            return view('vacantes.index');
+        else
+            return redirect()->route('dashboard');
     }
 
     /**

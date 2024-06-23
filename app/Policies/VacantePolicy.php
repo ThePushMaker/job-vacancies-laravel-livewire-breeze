@@ -13,15 +13,15 @@ class VacantePolicy
      */
     public function viewAny(User $user): bool
     {
-        //
+        return $user->rol === 2;
     }
 
     /**
      * Determine whether the user can view the model.
      */
-    public function view(User $user, Vacante $vacante): bool
+    public function view(User $user): bool
     {
-        //
+        // 
     }
 
     /**
