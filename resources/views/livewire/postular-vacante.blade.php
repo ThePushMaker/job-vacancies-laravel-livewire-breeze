@@ -7,4 +7,8 @@
             <x-text-input id="cv" type="file" accept=".pdf" class="block mt-1 w-full"/>
         </div>
     </form>
+    
+    <x-primary-button class="my-5 justify-center">
+        {{__('Postularme')}}
+    </x-primary-button>
 </div>
