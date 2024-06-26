@@ -16,7 +16,7 @@ class VacanteController extends Controller
         if (Gate::allows('viewAny', Vacante::class))
             return view('vacantes.index');
         else
-            return redirect()->route('dashboard');
+            return redirect()->route('vacantes.index');
     }
 
     /**
@@ -27,7 +27,7 @@ class VacanteController extends Controller
         if(Gate::allows('create', Vacante::class))
             return view('vacantes.create');
         else
-            return redirect()->route('dashboard');
+            return redirect()->route('vacantes.index');
     }
 
     /**
