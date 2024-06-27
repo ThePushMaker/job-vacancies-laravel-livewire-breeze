@@ -18,6 +18,8 @@
                                 {{ $vacante->titulo }}
                             </a>
                             <p class="text-base text-gray-600 mb-1">{{ $vacante->empresa }}</p>
+                            <p class="text-base text-gray-600 mb-1 font-bold">{{ $vacante->categoria->categoria }}</p>
+                            <p class="text-base text-gray-600 mb-1">{{ $vacante->salario->salario }}</p>
                             <p class="font-bold text-sm text-gray-600">
                                 Último día para postularse:
                                 <span class="font-normal">
