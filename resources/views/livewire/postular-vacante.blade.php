@@ -21,6 +21,9 @@
             @error('cv')
                 <livewire:mostrar-alerta :message="$message"/>
             @enderror
+            @if (session()->has('error'))
+                <livewire:mostrar-alerta :message="session('error')"/>
+            @endif
             
             <div class="flex justify-center">
                 <x-primary-button 
